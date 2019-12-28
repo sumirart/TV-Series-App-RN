@@ -13,8 +13,6 @@ Before you begin, ensure you have met the following requirements:
 ## Installing TV Series App
 
 To install TV Series App, follow these steps:
-
-Linux and macOS:
 ```
 git clone https://github.com/sumirart/TV-Series-App-RN.git
 cd TVSeriesAppRN
@@ -22,8 +20,8 @@ yarn
 npx react-native run-ios
 ```
 ## Screenshot
-![Main](/screenshots/main.png)
-![Detail](/screenshots/detail.png)
+<img src="/screenshots/main.png" width="400">
+<img src="/screenshots/detail.png" width="400">
 
 ## Contact
 
