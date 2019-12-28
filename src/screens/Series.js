@@ -35,6 +35,7 @@ class Pokemon extends Component {
       this.setState({hasSearch: true, loading: true, search: searchKey});
       this.search(searchKey);
     }
+    this.setState({result: []});
   };
 
   search = async searchKey => {
