@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 
 const SingleSeries = props => {
   const {navigation} = props;
@@ -19,14 +26,16 @@ const SingleSeries = props => {
   const rating = series.rating.average || 0;
 
   return (
-    <>
+    <ScrollView>
       <Image style={styles.image} source={{uri: image}} />
       <View style={styles.ratingContainer}>
         <Text style={styles.ratingText}>{rating}</Text>
       </View>
       <View style={styles.header}>
         <View style={styles.row}>
-          <Image style={styles.poster} source={{uri: image}} />
+          <View style={styles.posterContainer}>
+            <Image style={styles.poster} source={{uri: image}} />
+          </View>
           <View style={styles.info}>
             <Text style={styles.title} numberOfLines={2}>
               {title}
@@ -44,7 +53,7 @@ const SingleSeries = props => {
               data={series.genres}
               contentContainerStyle={{flexDirection: 'row'}}
               renderItem={item => <Genres genre={item.item} />}
-              keyExtractor={item => item.id}
+              keyExtractor={item => item.index}
             />
           ) : (
             <Genres />
@@ -55,7 +64,7 @@ const SingleSeries = props => {
         </Text>
         <Text style={styles.summary}>{clearSum}</Text>
       </View>
-    </>
+    </ScrollView>
   );
 };
 
@@ -74,7 +83,6 @@ export default SingleSeries;
 const styles = StyleSheet.create({
   image: {
     height: 350,
-    width: undefined,
     resizeMode: 'cover',
   },
   ratingContainer: {
@@ -98,9 +106,31 @@ const styles = StyleSheet.create({
     top: -50,
   },
   row: {flexDirection: 'row'},
-  poster: {width: 126, height: 177, top: -40, borderRadius: 10},
-  info: {marginLeft: 20, marginTop: 25, flex: 1},
-  title: {fontWeight: 'bold', fontSize: 20},
+  poster: {
+    width: 126,
+    height: 177,
+    top: -40,
+    borderRadius: 10,
+  },
+  posterContainer: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 3,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  info: {
+    marginLeft: 20,
+    marginTop: 25,
+    flex: 1,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
   textType: {
     fontWeight: '400',
     color: '#B4B9C5',
