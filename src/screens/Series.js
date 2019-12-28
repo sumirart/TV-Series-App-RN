@@ -6,7 +6,6 @@ import {
   ActivityIndicator,
   StyleSheet,
   FlatList,
-  TouchableOpacity,
 } from 'react-native';
 import {Form, Item, Label, Input} from 'native-base';
 import axios from 'axios';
