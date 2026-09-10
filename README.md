@@ -25,7 +25,7 @@ npx react-native run-ios
 
 ## Contact
 
-If you want to contact me you can reach me at <akun.pratmasumirat@gmail.com>.
+If you want to contact me you can reach me at ...
 
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
